@@ -21,7 +21,9 @@
         android:layout_alignParentRight="true"
 
 
-        android:id="@+id/menuview_userview_lbName" />
+        android:id="@+id/menuview_userview_lbName"
+
+        />
 
     <TextView
         android:text="TextView"

@@ -21,6 +21,14 @@ namespace Han.Droid
 			base.OnCreate(savedInstanceState);
 
 			// Create your application here
+			SetContentView(Resource.Layout.detailview);
+
+			var lbName = FindViewById<TextView>(Resource.Id.detailview_lbName);
+
+			var userString = Intent.GetStringExtra("selectedUser");
+			User user = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(userString);
+
+			lbName.Text = user.Name;
 		}
 	}
 }

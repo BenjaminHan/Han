@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/webflow_mywebview_btnGo"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="GO"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+
+        android:layout_toLeftOf="@id/webflow_mywebview_btnGo"
+        android:layout_alignBaseline="@id/webflow_mywebview_btnGo"
+
+
+        />
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_above="@id/webflow_mywebview_btnGo"
+            >
+
+        </WebView>
+
+
+</RelativeLayout>

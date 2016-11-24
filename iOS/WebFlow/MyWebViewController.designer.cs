@@ -1,21 +1,50 @@
-﻿// WARNING
+// WARNING
 //
-// This file has been generated automatically by Xamarin Studio from the outlets and
-// actions declared in your storyboard file.
-// Manual changes to this file will not be maintained.
+// This file has been generated automatically by Visual Studio to store outlets and
+// actions made in the UI designer. If it is removed, they will be lost.
+// Manual changes to this file may not be handled correctly.
 //
 using Foundation;
-using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
 namespace Han.iOS
 {
-	[Register("MyWebViewController")]
+	[Register ("MyWebViewController")]
 	partial class MyWebViewController
 	{
-		void ReleaseDesignerOutlets()
+		[Outlet]
+		UIKit.UIButton btnGo { get; set; }
+
+		[Outlet]
+		UIKit.NSLayoutConstraint btnGoBottomConstraint { get; set; }
+
+		[Outlet]
+		UIKit.UIWebView myWebView { get; set; }
+
+		[Outlet]
+		UIKit.UITextField txtUrl { get; set; }
+		
+		void ReleaseDesignerOutlets ()
 		{
+			if (btnGo != null) {
+				btnGo.Dispose ();
+				btnGo = null;
+			}
+
+			if (txtUrl != null) {
+				txtUrl.Dispose ();
+				txtUrl = null;
+			}
+
+			if (myWebView != null) {
+				myWebView.Dispose ();
+				myWebView = null;
+			}
+
+			if (btnGoBottomConstraint != null) {
+				btnGoBottomConstraint.Dispose ();
+				btnGoBottomConstraint = null;
+			}
 		}
 	}
 }
