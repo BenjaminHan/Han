@@ -34,6 +34,16 @@ namespace Han.Droid
 
 				StartActivity(nextActivity);
 			};
+
+			var goWebView = FindViewById<Button>(Resource.Id.loginflow_loginview_GoWebView);
+			goWebView.Click += (sender, e) =>
+			{
+
+				Intent nextActivity = new Intent(this, typeof(WebViewActivity));
+
+
+				StartActivity(nextActivity);
+			};
 		}
 	}
 }

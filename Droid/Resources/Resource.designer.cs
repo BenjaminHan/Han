@@ -47,6 +47,9 @@ namespace Han.Droid
 			// aapt resource value: 0x7f050000
 			public const int detailview_lbName = 2131034112;
 			
+			// aapt resource value: 0x7f050004
+			public const int loginflow_loginview_GoWebView = 2131034116;
+			
 			// aapt resource value: 0x7f050003
 			public const int loginflow_loginview_btnlogin = 2131034115;
 			
@@ -56,17 +59,23 @@ namespace Han.Droid
 			// aapt resource value: 0x7f050002
 			public const int loginflow_loginview_txtpassword = 2131034114;
 			
-			// aapt resource value: 0x7f050005
-			public const int menuview_userTable = 2131034117;
+			// aapt resource value: 0x7f050006
+			public const int menuview_userTable = 2131034118;
+			
+			// aapt resource value: 0x7f050008
+			public const int menuview_userview_lbDescription = 2131034120;
 			
 			// aapt resource value: 0x7f050007
-			public const int menuview_userview_lbDescription = 2131034119;
+			public const int menuview_userview_lbName = 2131034119;
 			
-			// aapt resource value: 0x7f050006
-			public const int menuview_userview_lbName = 2131034118;
+			// aapt resource value: 0x7f050005
+			public const int myButton = 2131034117;
 			
-			// aapt resource value: 0x7f050004
-			public const int myButton = 2131034116;
+			// aapt resource value: 0x7f050009
+			public const int webflow_mywebview_btnGo = 2131034121;
+			
+			// aapt resource value: 0x7f05000a
+			public const int webflow_mywebview_webview = 2131034122;
 			
 			static Id()
 			{
@@ -95,6 +104,9 @@ namespace Han.Droid
 			
 			// aapt resource value: 0x7f030004
 			public const int menuview_userview = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int webflow_mywebview = 2130903045;
 			
 			static Layout()
 			{

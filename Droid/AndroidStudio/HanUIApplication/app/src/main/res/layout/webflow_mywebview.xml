@@ -29,6 +29,8 @@
             android:layout_height="match_parent"
 
             android:layout_above="@id/webflow_mywebview_btnGo"
+
+            android:id="@+id/webflow_mywebview_webview"
             >
 
         </WebView>
