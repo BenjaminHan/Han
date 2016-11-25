@@ -6,7 +6,7 @@ namespace Han.iOS
 {
 	public partial class DetailViewController : UIViewController
 	{
-		public Restaurant SelectedUser { get;  set; }
+		public Restaurant SelectedRestaurant { get;  set; }
 		public DetailViewController(IntPtr handle) : base(handle)
 		{
 		}
@@ -16,11 +16,11 @@ namespace Han.iOS
 			base.ViewDidLoad();
 			// Perform any additional setup after loading the view, typically from a nib.
 
-			Title = SelectedUser.Name;//只要選擇show detail就會顯示title
+			Title = SelectedRestaurant.Name;//只要選擇show detail就會顯示title
 
-			lbDescription.Text = SelectedUser.Description;
-			lbAddress.Text = SelectedUser.Address;
-			btnWeb.SetTitle(SelectedUser.Url, forState: UIControlState.Normal);
+			lbDescription.Text = SelectedRestaurant.Description;
+			lbAddress.Text = SelectedRestaurant.Address;
+			btnWeb.SetTitle(SelectedRestaurant.Url, forState: UIControlState.Normal);
 
 			btnMap.TouchUpInside += (sender, e) => {
 				PerformSegue("moveToWebMapSegue", this);
@@ -46,7 +46,7 @@ namespace Han.iOS
 					var desViewCountroller = segue.DestinationViewController as MyMapViewController;
 
 					//var loc = new MyLocation { Lat = 25.0787519, Lng = 121.5680871 };
-					desViewCountroller.DisplayLocation = SelectedUser.DisplayLocation;
+					desViewCountroller.DisplayLocation = SelectedRestaurant.DisplayLocation;
 				}
 			}
 
@@ -55,8 +55,8 @@ namespace Han.iOS
 				if (segue.DestinationViewController is MyWebViewController)//保證正確的頁面
 				{
 					var desViewCountroller = segue.DestinationViewController as MyWebViewController;
-					desViewCountroller.Url = SelectedUser.Url;
-					desViewCountroller.Name = SelectedUser.Name;
+					desViewCountroller.Url = SelectedRestaurant.Url;
+					desViewCountroller.Name = SelectedRestaurant.Name;
 				}
 			}
 		}

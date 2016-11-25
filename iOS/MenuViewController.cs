@@ -11,7 +11,7 @@ namespace Han.iOS
 	public partial class MenuViewController : UIViewController
 	{
 
-		private Restaurant SelectUser { get; set;}
+		private Restaurant SelectRestaurant { get; set;}
 
 		public MenuViewController(IntPtr handle) : base(handle)
 		{
@@ -36,16 +36,16 @@ namespace Han.iOS
 				new Restaurant {Name = @"七十一", Description = @"很方便", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}}
 			};
 
-			var tableSource = new UserTableSource(list);
+			var tableSource = new RestaurantTableSource(list);
 			userTable.Source = tableSource;
 			//myTableView.Source = tableSource;
 
 			//who is selected
 			tableSource.UserSelected += delegate (object sender, UserSelectedEventArgs e)
 			{
-				SelectUser = e.SelectedUser;
+				SelectRestaurant = e.SelectedRestaurant;
 
-				WriteLine(SelectUser.Address);//application output看結果（右下角）
+				WriteLine(SelectRestaurant.Address);//application output看結果（右下角）
 
 				InvokeOnMainThread( () => { 
 					PerformSegue("moveToDetailSegue", this);//to detail page
@@ -74,7 +74,7 @@ namespace Han.iOS
 				{
 					var desViewCountroller = segue.DestinationViewController as DetailViewController;
 
-					desViewCountroller.SelectedUser = SelectUser;
+					desViewCountroller.SelectedRestaurant = SelectRestaurant;
 				}
 			}
 		}
@@ -86,19 +86,19 @@ namespace Han.iOS
 			// Release any cached data, images, etc that aren't in use.
 		}
 
-		public class UserTableSource : UITableViewSource
+		public class RestaurantTableSource : UITableViewSource
 		{
 			// CellView Identifier
 			const string UserViewCellIdentifier = @"UserViewCell";
 
 			// ctor. Model
 
-			private List<Restaurant> Users { get; set; }
+			private List<Restaurant> Restaurants { get; set; }
 
-			public UserTableSource(IEnumerable<Restaurant> users)
+			public RestaurantTableSource(IEnumerable<Restaurant> restaurants)
 			{
-				Users = new List<Restaurant>();
-				Users.AddRange(users);
+				Restaurants = new List<Restaurant>();
+				Restaurants.AddRange(restaurants);
 			}
 
 			// Model -> Controller -> View
@@ -106,14 +106,14 @@ namespace Han.iOS
 			// Memory
 			public override nint RowsInSection(UITableView tableview, nint section)
 			{
-				return (nint)Users.Count;
+				return (nint)Restaurants.Count;
 			}
 
 			// Controller -> View
 			public override UITableViewCell GetCell(UITableView tableView, Foundation.NSIndexPath indexPath)
 			{
 
-				Restaurant myClass = Users[indexPath.Row];
+				Restaurant myClass = Restaurants[indexPath.Row];
 
 
 				UserViewCell cell = tableView.DequeueReusableCell(UserViewCellIdentifier)
@@ -139,14 +139,14 @@ namespace Han.iOS
 			{
 				tableView.DeselectRow(indexPath, true);
 
-				Restaurant user = Users[indexPath.Row];
+				Restaurant user = Restaurants[indexPath.Row];
 
 				EventHandler<UserSelectedEventArgs> handle = UserSelected;
 
 				if (null != handle)
 				{
 
-					var args = new UserSelectedEventArgs { SelectedUser = user };
+					var args = new UserSelectedEventArgs { SelectedRestaurant = user };
 
 					handle(this, args);
 				}
@@ -163,7 +163,7 @@ namespace Han.iOS
 		public class UserSelectedEventArgs : EventArgs
 		{
 
-			public Restaurant SelectedUser { get; set; }
+			public Restaurant SelectedRestaurant { get; set; }
 
 		}
 	}
