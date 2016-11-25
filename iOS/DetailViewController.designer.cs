@@ -13,13 +13,21 @@ namespace Han.iOS
 	partial class DetailViewController
 	{
 		[Outlet]
-		UIKit.UIButton _GoToWebView { get; set; }
+		UIKit.UIButton btnMap { get; set; }
+
+		[Outlet]
+		UIKit.UIButton btnWeb { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (_GoToWebView != null) {
-				_GoToWebView.Dispose ();
-				_GoToWebView = null;
+			if (btnWeb != null) {
+				btnWeb.Dispose ();
+				btnWeb = null;
+			}
+
+			if (btnMap != null) {
+				btnMap.Dispose ();
+				btnMap = null;
 			}
 		}
 	}

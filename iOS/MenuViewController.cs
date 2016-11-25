@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 using UIKit;
 using static System.Console;
@@ -46,19 +47,23 @@ namespace Han.iOS
 
 				WriteLine(e.SelectedUser.Name);//application output看結果（右下角）
 
-				InvokeOnMainThread(() => { 
+				InvokeOnMainThread( () => { 
 					PerformSegue("moveToDetailSegue", this);//to detail page
 				});
 
 			};
 
-			userTable.ReloadData();//一定要在invoke on mainthread跑
+			InvokeOnMainThread( () =>  {
+			    userTable.ReloadData();//一定要在invoke on mainthread跑
+			});
+
+
 			//myTableView.ReloadData();
 
 
 		}
 
-		//下一頁顯示
+		//下一頁顯示/驗證/傳值
 		public override void PrepareForSegue(UIStoryboardSegue segue, Foundation.NSObject sender)
 		{
 			base.PrepareForSegue(segue, sender);

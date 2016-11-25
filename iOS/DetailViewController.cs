@@ -18,6 +18,42 @@ namespace Han.iOS
 
 			Title = SelectedUser.Name;//只要選擇show detail就會顯示title
 
+			btnMap.TouchUpInside += (sender, e) => {
+				PerformSegue("moveToWebMapSegue", this);
+			};
+
+
+			btnWeb.TouchUpInside += (sender, e) =>
+			{
+				PerformSegue("moveToWebViewSegue", this);
+			};
+
+		}
+
+		//下一頁顯示/驗證/傳值
+		public override void PrepareForSegue(UIStoryboardSegue segue, Foundation.NSObject sender)
+		{
+			base.PrepareForSegue(segue, sender);
+
+			if ("moveToWebMapSegue" == segue.Identifier)
+			{
+				if (segue.DestinationViewController is MyMapViewController)//保證正確的頁面
+				{
+					var desViewCountroller = segue.DestinationViewController as MyMapViewController;
+
+					var loc = new MyLocation { Lat = 25.0787519, Lng = 121.5680871 };
+					desViewCountroller.DisplayLocation = loc;
+				}
+			}
+
+			if ("moveToWebViewSegue" == segue.Identifier)
+			{
+				if (segue.DestinationViewController is MyWebViewController)//保證正確的頁面
+				{
+					//var desViewCountroller = segue.DestinationViewController as MyWebViewController;
+
+				}
+			}
 		}
 
 		public override void DidReceiveMemoryWarning()

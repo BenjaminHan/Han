@@ -185,15 +185,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fu-Vo-Pqd">
-                                <rect key="frame" x="61" y="523" width="117" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKw-5J-fsK">
+                                <rect key="frame" x="142" y="294" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="GoToWebView"/>
+                                <state key="normal" title="Map">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fu-Vo-Pqd">
+                                <rect key="frame" x="107" y="237" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Web">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="btnMap" destination="EKw-5J-fsK" id="6Us-st-33R"/>
+                        <outlet property="btnWeb" destination="8fu-Vo-Pqd" id="WHH-lJ-ZZ4"/>
                         <segue destination="2zx-a5-VLl" kind="show" identifier="moveToWebViewSegue" id="ZKT-GS-gHJ"/>
                         <segue destination="nei-sj-rrt" kind="show" identifier="moveToWebMapSegue" id="y0u-yA-ad8"/>
                     </connections>
@@ -202,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="2288.8000000000002" y="59.820089955022496"/>
         </scene>
-        <!--View Controller-->
+        <!--My Map View Controller-->
         <scene sceneID="cAU-Y3-dky">
             <objects>
-                <viewController id="nei-sj-rrt" sceneMemberID="viewController">
+                <viewController id="nei-sj-rrt" customClass="MyMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8b9-Ph-3Wg"/>
                         <viewControllerLayoutGuide type="bottom" id="yRl-J7-bXm"/>
@@ -213,12 +224,45 @@
                     <view key="view" contentMode="scaleToFill" id="HdV-cs-5zT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AmE-Tq-fsx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AmE-Tq-fsx" firstAttribute="top" secondItem="HdV-cs-5zT" secondAttribute="top" id="6jH-f7-tSd"/>
+                            <constraint firstItem="yRl-J7-bXm" firstAttribute="top" secondItem="AmE-Tq-fsx" secondAttribute="bottom" id="BN2-TD-pv4"/>
+                            <constraint firstAttribute="trailing" secondItem="AmE-Tq-fsx" secondAttribute="trailing" id="K18-a9-3VG"/>
+                            <constraint firstItem="AmE-Tq-fsx" firstAttribute="leading" secondItem="HdV-cs-5zT" secondAttribute="leading" id="pIh-wu-V4p"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="myMapView" destination="AmE-Tq-fsx" id="3Cq-85-qqr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wpn-RF-u0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3248.8000000000002" y="538.38080959520244"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KX0-qS-NFx">
+            <objects>
+                <viewController id="6rp-Pk-H1p" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iao-rQ-NDF"/>
+                        <viewControllerLayoutGuide type="bottom" id="39T-6V-a5U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8p0-hY-83K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nCH-qG-Cdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4028" y="538"/>
         </scene>
         <!--My Web View Controller-->
         <scene sceneID="XLi-A5-mwa">

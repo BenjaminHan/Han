@@ -52,7 +52,7 @@ namespace Han.iOS
 						if (components[1] == @"Hi")
 						{
 
-							UIAlertController alert = UIAlertController.Create(@"Hi Title", @"當然是世界好", UIAlertControllerStyle.Alert);
+							UIAlertController alert = UIAlertController.Create(@"Hi Title", @"當然是世界好", UIAlertControllerStyle.Alert);//actionsheet
 
 
 							UIAlertAction okAction = UIAlertAction.Create(@"OK", UIAlertActionStyle.Default, (action) =>
