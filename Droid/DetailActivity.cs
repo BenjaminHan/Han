@@ -26,7 +26,7 @@ namespace Han.Droid
 			var lbName = FindViewById<TextView>(Resource.Id.detailview_lbName);
 
 			var userString = Intent.GetStringExtra("selectedUser");
-			BestFood user = Newtonsoft.Json.JsonConvert.DeserializeObject<BestFood>(userString);
+			Restaurant user = Newtonsoft.Json.JsonConvert.DeserializeObject<Restaurant>(userString);
 
 			lbName.Text = user.Name;
 		}

@@ -20,7 +20,7 @@ namespace Han.iOS
 			// Note: this .ctor should not contain any initialization logic.
 		}
 
-		public void UpdateUI(BestFood user){
+		public void UpdateUI(Restaurant user){
 
 			lbName.Text = user.Name;
 			lbDescription.Text = user.Description;

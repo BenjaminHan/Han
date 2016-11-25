@@ -6,7 +6,7 @@ namespace Han.iOS
 {
 	public partial class DetailViewController : UIViewController
 	{
-		public BestFood SelectedUser { get;  set; }
+		public Restaurant SelectedUser { get;  set; }
 		public DetailViewController(IntPtr handle) : base(handle)
 		{
 		}

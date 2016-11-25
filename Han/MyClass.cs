@@ -1,9 +1,9 @@
 ﻿using System;
 namespace Han
 {
-	public class BestFood
+	public class Restaurant
 	{
-		public BestFood()
+		public Restaurant()
 		{
 		}
 
