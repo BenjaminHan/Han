@@ -20,10 +20,11 @@ namespace Han.iOS
 			// Note: this .ctor should not contain any initialization logic.
 		}
 
-		public void UpdateUI(User user){
+		public void UpdateUI(BestFood user){
 
 			lbName.Text = user.Name;
 			lbDescription.Text = user.Description;
+			_userImage.Image = UIImage.FromFile("");
 
 		}
 	}

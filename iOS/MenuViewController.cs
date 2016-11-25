@@ -11,7 +11,7 @@ namespace Han.iOS
 	public partial class MenuViewController : UIViewController
 	{
 
-		private User SelectUser { get; set;}
+		private BestFood SelectUser { get; set;}
 
 		public MenuViewController(IntPtr handle) : base(handle)
 		{
@@ -28,12 +28,12 @@ namespace Han.iOS
 		private void ShowTable()
 		{
 
-			var list = new List<User>
+			var list = new List<BestFood>
 			{
-				new User {Name = @"雞腿飯", Description = @"還沒吃到呢", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}},
-				new User {Name = @"Just Sleep", Description = @"商務旅館", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}},
-				new User {Name = @"摩絲漢堡", Description = @"到處都有", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}},
-				new User {Name = @"七十一", Description = @"很方便", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}}
+				new BestFood {Name = @"雞腿飯", Description = @"還沒吃到呢", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}},
+				new BestFood {Name = @"Just Sleep", Description = @"商務旅館", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}},
+				new BestFood {Name = @"摩絲漢堡", Description = @"到處都有", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}},
+				new BestFood {Name = @"七十一", Description = @"很方便", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}}
 			};
 
 			var tableSource = new UserTableSource(list);
@@ -93,11 +93,11 @@ namespace Han.iOS
 
 			// ctor. Model
 
-			private List<User> Users { get; set; }
+			private List<BestFood> Users { get; set; }
 
-			public UserTableSource(IEnumerable<User> users)
+			public UserTableSource(IEnumerable<BestFood> users)
 			{
-				Users = new List<User>();
+				Users = new List<BestFood>();
 				Users.AddRange(users);
 			}
 
@@ -113,7 +113,7 @@ namespace Han.iOS
 			public override UITableViewCell GetCell(UITableView tableView, Foundation.NSIndexPath indexPath)
 			{
 
-				User myClass = Users[indexPath.Row];
+				BestFood myClass = Users[indexPath.Row];
 
 
 				UserViewCell cell = tableView.DequeueReusableCell(UserViewCellIdentifier)
@@ -139,7 +139,7 @@ namespace Han.iOS
 			{
 				tableView.DeselectRow(indexPath, true);
 
-				User user = Users[indexPath.Row];
+				BestFood user = Users[indexPath.Row];
 
 				EventHandler<UserSelectedEventArgs> handle = UserSelected;
 
@@ -163,7 +163,7 @@ namespace Han.iOS
 		public class UserSelectedEventArgs : EventArgs
 		{
 
-			public User SelectedUser { get; set; }
+			public BestFood SelectedUser { get; set; }
 
 		}
 	}

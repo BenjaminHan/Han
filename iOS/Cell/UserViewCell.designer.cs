@@ -13,6 +13,9 @@ namespace Han.iOS
 	partial class UserViewCell
 	{
 		[Outlet]
+		UIKit.UIImageView _userImage { get; set; }
+
+		[Outlet]
 		UIKit.UILabel lbDescription { get; set; }
 
 		[Outlet]
@@ -20,14 +23,19 @@ namespace Han.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (lbName != null) {
-				lbName.Dispose ();
-				lbName = null;
+			if (_userImage != null) {
+				_userImage.Dispose ();
+				_userImage = null;
 			}
 
 			if (lbDescription != null) {
 				lbDescription.Dispose ();
 				lbDescription = null;
+			}
+
+			if (lbName != null) {
+				lbName.Dispose ();
+				lbName = null;
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,12 +37,12 @@ namespace Han.Droid
 		private void LoadData()
 		{
 
-			var list = new List<User>
+			var list = new List<BestFood>
 			{
-				new User {Name = @"Aa", Description = @"使用者 甲"},
-				new User {Name = @"Bb", Description = @"使用者 乙"},
-				new User {Name = @"Cc", Description = @"使用者 丙"},
-				new User {Name = @"Dd", Description = @"使用者 丁"}
+				new BestFood {Name = @"Aa", Description = @"使用者 甲"},
+				new BestFood {Name = @"Bb", Description = @"使用者 乙"},
+				new BestFood {Name = @"Cc", Description = @"使用者 丙"},
+				new BestFood {Name = @"Dd", Description = @"使用者 丁"}
 			};
 
 			RunOnUiThread(() => {
@@ -50,7 +50,7 @@ namespace Han.Droid
 					userTable.Adapter = new UserListAdapter(list, this);
 					userTable.ItemClick += (sender, args) =>
 					{
-						User user = list[args.Position];
+						BestFood user = list[args.Position];
 
 						WriteLine($" {user.Name} selected");
 
@@ -69,11 +69,11 @@ namespace Han.Droid
 		/// <summary>
 		/// 請複製整個類別後，更改資料以及
 		/// </summary>
-		public class UserListAdapter : BaseAdapter<User>
+		public class UserListAdapter : BaseAdapter<BestFood>
 		{
 			private Activity context;
 
-			private List<User> Users { get; set; }
+			private List<BestFood> Users { get; set; }
 
 			/// <summary>
 			/// Initializes a new instance of the <see cref="T:XamarinTableView.Droid.MainActivity.UserListAdapter"/> class.
@@ -81,11 +81,11 @@ namespace Han.Droid
 			/// </summary>
 			/// <param name="users">Users.</param>
 			/// <param name="context">Context.</param>
-			public UserListAdapter(IEnumerable<User> users, Activity context)
+			public UserListAdapter(IEnumerable<BestFood> users, Activity context)
 			{
 				this.context = context;
 
-				Users = new List<User>();
+				Users = new List<BestFood>();
 				Users.AddRange(users);
 			}
 
@@ -127,7 +127,7 @@ namespace Han.Droid
 				}
 
 				// Data Binding
-				User user = Users[position];
+				BestFood user = Users[position];
 
 				view.FindViewById<TextView>(Resource.Id.menuview_userview_lbName).Text = user.Name;
 				view.FindViewById<TextView>(Resource.Id.menuview_userview_lbDescription).Text = user.Description;
@@ -140,7 +140,7 @@ namespace Han.Droid
 			/// Gets the <see cref="T:XamarinTableView.Droid.MainActivity.UserListAdapter"/> with the specified position.
 			/// </summary>
 			/// <param name="position">Position.</param>
-			public override User this[int position] => Users[position];
+			public override BestFood this[int position] => Users[position];
 		}
 	}
 }

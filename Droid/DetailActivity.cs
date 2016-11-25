@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +26,7 @@ namespace Han.Droid
 			var lbName = FindViewById<TextView>(Resource.Id.detailview_lbName);
 
 			var userString = Intent.GetStringExtra("selectedUser");
-			User user = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(userString);
+			BestFood user = Newtonsoft.Json.JsonConvert.DeserializeObject<BestFood>(userString);
 
 			lbName.Text = user.Name;
 		}
