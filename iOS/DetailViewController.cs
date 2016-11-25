@@ -18,6 +18,10 @@ namespace Han.iOS
 
 			Title = SelectedUser.Name;//只要選擇show detail就會顯示title
 
+			lbDescription.Text = SelectedUser.Description;
+			lbAddress.Text = SelectedUser.Address;
+			btnWeb.SetTitle(SelectedUser.Url, forState: UIControlState.Normal);
+
 			btnMap.TouchUpInside += (sender, e) => {
 				PerformSegue("moveToWebMapSegue", this);
 			};
@@ -41,8 +45,8 @@ namespace Han.iOS
 				{
 					var desViewCountroller = segue.DestinationViewController as MyMapViewController;
 
-					var loc = new MyLocation { Lat = 25.0787519, Lng = 121.5680871 };
-					desViewCountroller.DisplayLocation = loc;
+					//var loc = new MyLocation { Lat = 25.0787519, Lng = 121.5680871 };
+					desViewCountroller.DisplayLocation = SelectedUser.DisplayLocation;
 				}
 			}
 
@@ -50,8 +54,9 @@ namespace Han.iOS
 			{
 				if (segue.DestinationViewController is MyWebViewController)//保證正確的頁面
 				{
-					//var desViewCountroller = segue.DestinationViewController as MyWebViewController;
-
+					var desViewCountroller = segue.DestinationViewController as MyWebViewController;
+					desViewCountroller.Url = SelectedUser.Url;
+					desViewCountroller.Name = SelectedUser.Name;
 				}
 			}
 		}

@@ -8,7 +8,7 @@ namespace Han.iOS
 {
 	public partial class ViewController : UIViewController
 	{
-		int count = 1;
+		//int count = 1;
 
 		public ViewController(IntPtr handle) : base(handle)
 		{
@@ -26,7 +26,7 @@ namespace Han.iOS
 				InvokeOnMainThread(() =>
 				{
 
-					PerformSegue("moveToLoginViewSegue", this);
+					PerformSegue("moveToMenuSegue", this);//moveToLoginViewSegue
 				});
 
 			});

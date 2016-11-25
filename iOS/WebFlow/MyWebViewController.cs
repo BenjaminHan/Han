@@ -3,12 +3,17 @@
 using UIKit;
 using Foundation;
 
+using System.Web;
+
 using static System.Console;
 
 namespace Han.iOS
 {
 	public partial class MyWebViewController : UIViewController
 	{
+		public string Url { get; set;}
+		public string Name { get; set;}
+
 		public MyWebViewController(IntPtr handle) : base(handle)
 		{
 		}
@@ -18,7 +23,12 @@ namespace Han.iOS
 			base.ViewDidLoad();
 			// Perform any additional setup after loading the view, typically from a nib.
 
+			myWebView.LoadRequest(new NSUrlRequest(
+				new NSUrl(Url + "?gfe_rd=cr&ei=D_A3WNSzPILC1ASI1ZOADg&gws_rd=ssl#q=" + HttpUtility.UrlEncode(Name))
+			));
+			txtUrl.Text = Name;
 
+			/*
 			myWebView.LoadHtmlString(@"
 			<html>
 				<head>
@@ -35,6 +45,7 @@ namespace Han.iOS
 					<button type='button' onclick='msg()' text='Hi'>Hi</button>
 				</body>
 			</html>", null);
+
 
 			myWebView.ShouldStartLoad =
 				delegate (UIWebView webView,
@@ -78,7 +89,7 @@ namespace Han.iOS
 
 					return true;
 
-				};
+				};*/
 
 
 			//btnGo.TouchUpInside += (object sender, EventArgs e) =>

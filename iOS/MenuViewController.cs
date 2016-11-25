@@ -30,10 +30,10 @@ namespace Han.iOS
 
 			var list = new List<User>
 			{
-				new User {Name = @"Aa", Description = @"使用者 甲"},
-				new User {Name = @"Bb", Description = @"使用者 乙"},
-				new User {Name = @"Cc", Description = @"使用者 丙"},
-				new User {Name = @"Dd", Description = @"使用者 丁"}
+				new User {Name = @"雞腿飯", Description = @"還沒吃到呢", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}},
+				new User {Name = @"Just Sleep", Description = @"商務旅館", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}},
+				new User {Name = @"摩絲漢堡", Description = @"到處都有", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}},
+				new User {Name = @"七十一", Description = @"很方便", Address = "墾丁大街1999999號", Url = "https://www.google.com.tw", DisplayLocation = new MyLocation{Lat = 25.0787519, Lng = 121.5680871}}
 			};
 
 			var tableSource = new UserTableSource(list);
@@ -45,7 +45,7 @@ namespace Han.iOS
 			{
 				SelectUser = e.SelectedUser;
 
-				WriteLine(e.SelectedUser.Name);//application output看結果（右下角）
+				WriteLine(SelectUser.Address);//application output看結果（右下角）
 
 				InvokeOnMainThread( () => { 
 					PerformSegue("moveToDetailSegue", this);//to detail page

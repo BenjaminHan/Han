@@ -17,6 +17,12 @@ namespace Han.iOS
 
 		[Outlet]
 		UIKit.UIButton btnWeb { get; set; }
+
+		[Outlet]
+		UIKit.UILabel lbAddress { get; set; }
+
+		[Outlet]
+		UIKit.UILabel lbDescription { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -28,6 +34,16 @@ namespace Han.iOS
 			if (btnMap != null) {
 				btnMap.Dispose ();
 				btnMap = null;
+			}
+
+			if (lbDescription != null) {
+				lbDescription.Dispose ();
+				lbDescription = null;
+			}
+
+			if (lbAddress != null) {
+				lbAddress.Dispose ();
+				lbAddress = null;
 			}
 		}
 	}
